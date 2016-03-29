@@ -208,6 +208,10 @@ BinWrapper.prototype.download = function (cb) {
 		strip: this.opts.strip
 	});
 
+	console.log('Downloading files: ', files.map(function getUrl(file) {
+		return file.url;
+	}).join(', '));
+
 	if (!files.length) {
 		cb(new Error('No binary found matching your system. It\'s probably not supported.'));
 		return;
